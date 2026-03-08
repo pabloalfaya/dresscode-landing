@@ -65,7 +65,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="tel:+34900000000"
+                href="tel:+34655737973"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-accent px-6 py-4 text-sm font-semibold text-accent uppercase tracking-wide bg-transparent hover:bg-accent/10 transition-colors"
               >
                 <PhoneIcon />

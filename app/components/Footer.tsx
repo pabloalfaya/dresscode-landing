@@ -49,11 +49,11 @@ export function Footer() {
               Contacto
             </h3>
             <address className="not-italic space-y-3">
-              <a href="mailto:info@dresscodepro.com" className="block text-sm text-zinc-400 hover:text-accent transition-colors">
-                info@dresscodepro.com
+              <a href="mailto:hola@dresscodepro.es" className="block text-sm text-zinc-400 hover:text-accent transition-colors">
+                hola@dresscodepro.es
               </a>
-              <a href="tel:+34900000000" className="block text-sm text-zinc-400 hover:text-accent transition-colors">
-                +34 900 000 000
+              <a href="tel:+34655737973" className="block text-sm text-zinc-400 hover:text-accent transition-colors">
+                +34 655 737 973
               </a>
               <p className="text-sm text-zinc-400">
                 Madrid, España

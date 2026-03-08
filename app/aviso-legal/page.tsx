@@ -18,7 +18,7 @@ const sections = [
           Información y de Comercio Electrónico (LSSI-CE), se informa a los usuarios de los siguientes datos:
         </p>
         <ul className="mt-4 space-y-2">
-          {["Titular: [NOMBRE O RAZÓN SOCIAL DE LA EMPRESA]", "NIF/CIF: [IDENTIFICACIÓN FISCAL]", "Domicilio social: [DIRECCIÓN COMPLETA], Madrid, España", "Email: info@dresscodepro.com", "Teléfono: +34 900 000 000"].map((item) => (
+          {["Titular: [NOMBRE O RAZÓN SOCIAL DE LA EMPRESA]", "NIF/CIF: [IDENTIFICACIÓN FISCAL]", "Domicilio social: [DIRECCIÓN COMPLETA], Madrid, España", "Email: hola@dresscodepro.es", "Teléfono: +34 655 737 973"].map((item) => (
             <li key={item} className="flex items-start gap-3 text-zinc-600">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               <span>{item}</span>

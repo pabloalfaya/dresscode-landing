@@ -17,7 +17,7 @@ const sections = [
           El responsable del tratamiento de los datos personales recabados a través del presente sitio web es:
         </p>
         <ul className="mt-4 space-y-2">
-          {["Identidad: [NOMBRE O RAZÓN SOCIAL DE LA EMPRESA]", "NIF/CIF: [IDENTIFICACIÓN FISCAL]", "Dirección: [DIRECCIÓN COMPLETA], Madrid, España", "Email: info@dresscodepro.com"].map((item) => (
+          {["Identidad: [NOMBRE O RAZÓN SOCIAL DE LA EMPRESA]", "NIF/CIF: [IDENTIFICACIÓN FISCAL]", "Dirección: [DIRECCIÓN COMPLETA], Madrid, España", "Email: hola@dresscodepro.es"].map((item) => (
             <li key={item} className="flex items-start gap-3 text-zinc-600">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               <span>{item}</span>
@@ -117,7 +117,7 @@ const sections = [
           ))}
         </ul>
         <p className="mt-4 text-zinc-600 leading-relaxed">
-          Para ejercer estos derechos puede dirigirse a info@dresscodepro.com. Asimismo, tiene derecho a presentar
+          Para ejercer estos derechos puede dirigirse a hola@dresscodepro.es. Asimismo, tiene derecho a presentar
           una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es) si considera que el
           tratamiento no se ajusta a la normativa vigente.
         </p>

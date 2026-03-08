@@ -94,9 +94,9 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-6 shrink-0">
-            <a href="tel:+34900000000" className="flex items-center gap-2 text-sm font-semibold text-accent">
+            <a href="tel:+34655737973" className="flex items-center gap-2 text-sm font-semibold text-accent">
               <PhoneIcon />
-              <span>+34 900 000 000</span>
+              <span>+34 655 737 973</span>
             </a>
             <Link href="/solicitar-propuesta" className="rounded-lg bg-zinc-900 px-5 py-3 text-sm font-semibold text-white uppercase tracking-wide hover:bg-zinc-800 transition-colors">
               Solicitar propuesta
@@ -139,9 +139,9 @@ export function Navbar() {
                   </Link>
                 )
               )}
-              <a href="tel:+34900000000" className="flex items-center gap-2 py-3 text-sm font-semibold text-accent">
+              <a href="tel:+34655737973" className="flex items-center gap-2 py-3 text-sm font-semibold text-accent">
                 <PhoneIcon />
-                +34 900 000 000
+                +34 655 737 973
               </a>
               <Link href="/solicitar-propuesta" className="rounded-lg bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white uppercase tracking-wide" onClick={() => setMobileMenuOpen(false)}>
                 Solicitar propuesta

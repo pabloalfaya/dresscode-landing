@@ -123,11 +123,11 @@ export default function ContactoPage() {
           <div className="mt-10 text-center">
             <p className="text-sm text-zinc-500 mb-3">¿Prefieres escribirnos directamente?</p>
             <a
-              href="mailto:contacto@dresscode.com"
+              href="mailto:hola@dresscodepro.es"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-700 text-sm font-medium shadow-sm hover:border-accent hover:text-accent transition-colors"
             >
               <EnvelopeIcon />
-              contacto@dresscode.com
+              hola@dresscodepro.es
             </a>
           </div>
         </div>
