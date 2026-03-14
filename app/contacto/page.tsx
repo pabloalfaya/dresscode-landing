@@ -1,16 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { Navbar } from "../components/Navbar";
-
-function SendIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="22" y1="2" x2="11" y2="13" />
-      <polygon points="22 2 15 22 11 13 2 9 22 2" />
-    </svg>
-  );
-}
 
 function EnvelopeIcon() {
   return (
@@ -22,17 +12,8 @@ function EnvelopeIcon() {
 }
 
 export default function ContactoPage() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("sending");
-    setTimeout(() => setStatus("sent"), 800);
-  };
-
   return (
     <div className="min-h-screen bg-[#FBF9F6] relative overflow-hidden">
-      {/* Subtle grid background */}
       <div
         className="absolute inset-0 opacity-[0.15]"
         style={{
@@ -53,82 +34,19 @@ export default function ContactoPage() {
             <span className="text-accent">información</span>
           </h1>
           <p className="text-center text-zinc-500 text-base sm:text-lg mb-12 max-w-xl mx-auto">
-            ¿Necesitas uniformes corporativos para tu equipo? Cuéntanos tu proyecto y te asesoramos con la mejor solución a medida.
+            ¿Necesitas uniformes corporativos para tu equipo? Escríbenos y te asesoramos con la mejor solución a medida.
           </p>
 
-          <div className="rounded-2xl sm:rounded-3xl bg-white shadow-xl shadow-zinc-200/50 border border-zinc-100 p-6 sm:p-8 lg:p-10">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-xs font-semibold text-zinc-700 uppercase tracking-wider mb-2">
-                    Nombre completo
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Ej: María García"
-                    className="w-full px-4 py-3 rounded-lg border border-zinc-200 text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-xs font-semibold text-zinc-700 uppercase tracking-wider mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="maria@empresa.com"
-                    className="w-full px-4 py-3 rounded-lg border border-zinc-200 text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-xs font-semibold text-zinc-700 uppercase tracking-wider mb-2">
-                  Mensaje
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  placeholder="Cuéntanos sobre tu proyecto, sector y necesidades..."
-                  className="w-full px-4 py-3 rounded-lg border border-zinc-200 text-zinc-800 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors resize-none"
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="w-full flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-6 py-4 text-base font-semibold text-white hover:bg-zinc-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {status === "sending" ? (
-                  "Enviando..."
-                ) : status === "sent" ? (
-                  "¡Mensaje enviado!"
-                ) : (
-                  <>
-                    <SendIcon />
-                    Enviar mensaje
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
-
-          <div className="mt-10 text-center">
-            <p className="text-sm text-zinc-500 mb-3">¿Prefieres escribirnos directamente?</p>
+          <div className="text-center">
+            <p className="text-sm text-zinc-500 mb-3">Escríbenos a:</p>
             <a
               href="mailto:hola@dresscodepro.es"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-700 text-sm font-medium shadow-sm hover:border-accent hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-zinc-200 bg-white text-zinc-800 text-lg font-medium shadow-sm hover:border-accent hover:text-accent transition-colors select-all"
             >
               <EnvelopeIcon />
               hola@dresscodepro.es
             </a>
+            <p className="text-xs text-zinc-400 mt-3">Selecciona y copia el correo o haz clic para abrir tu cliente de email</p>
           </div>
         </div>
       </main>
