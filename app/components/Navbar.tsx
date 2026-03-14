@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
+  { label: "SECTORES", hasDropdown: true },
   { label: "SOLUCIONES", href: "/soluciones" },
   { label: "PROYECTOS", href: "#" },
   { label: "CONTACTO", href: "/contacto" },
-  { label: "SECTORES", hasDropdown: true },
 ];
 
 const sectorOptions = [
