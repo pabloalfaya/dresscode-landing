@@ -1,41 +1,34 @@
 import Link from "next/link";
 
-const sectorLinks = [
-  { label: "Beach Clubs", href: "/sectores/beach-clubs" },
-  { label: "Restauración", href: "/sectores/restauracion" },
-  { label: "Hoteles", href: "/sectores/hoteles" },
-  { label: "Golf", href: "/sectores/golf" },
-  { label: "Wellness", href: "/sectores/wellness" },
-  { label: "Clínicas", href: "/sectores/clinicas" },
-  { label: "Franquicias", href: "/sectores/franquicias" },
-];
-
 export function Footer() {
   return (
-    <footer className="bg-zinc-900 text-zinc-300">
-      <div className="h-px w-full bg-white" aria-hidden />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-          {/* Columna 1: DRESSCODE PRO */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">
-              <span className="text-zinc-100">DRESSCODE</span>
-              <span className="text-accent"> PRO</span>
+    <footer className="bg-black text-white/70">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {/* Columna 1: DRESSCODE */}
+          <div className="lg:pr-8">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-6">
+              DRESSCODE
             </h3>
-            <p className="text-sm leading-relaxed text-zinc-400 max-w-sm">
-              Vestuario corporativo premium para sectores exigentes. Servicio inmediato, colecciones exclusivas y gestión integral.
+            <p className="text-[13px] leading-relaxed text-white/50 font-light">
+              Dresscode es un estudio con sede en Barcelona especializado en el diseño y producción de uniformes premium para hostelería, wellness y marcas de servicio.
             </p>
           </div>
 
           {/* Columna 2: SECTORES */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-6">
-              Sectores
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-6">
+              SECTORES
             </h3>
-            <ul className="space-y-3">
-              {sectorLinks.map((link) => (
+            <ul className="space-y-4">
+              {[
+                { label: "Uniformes para Restauración", href: "/sectores/restauracion" },
+                { label: "Uniformes para Hoteles", href: "/sectores/hoteles" },
+                { label: "Uniformes Spa & Wellness", href: "/sectores/wellness" },
+                { label: "Uniformes para Golf", href: "/sectores/golf" },
+              ].map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-zinc-400 hover:text-accent transition-colors">
+                  <Link href={link.href} className="text-[13px] font-light hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -43,37 +36,58 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: CONTACTO */}
+          {/* Columna 3: EMPRESA */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-6">
-              Contacto
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-6">
+              EMPRESA
             </h3>
-            <address className="not-italic space-y-3">
-              <a href="mailto:hola@dresscodepro.es" className="block text-sm text-zinc-400 hover:text-accent transition-colors">
+            <ul className="space-y-4">
+              {[
+                { label: "Sobre Dresscode", href: "/sobre-nosotros" },
+                { label: "Nuestro Proceso", href: "/proceso" },
+                { label: "Proyectos", href: "/proyectos" },
+                { label: "Contacto", href: "/contacto" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-[13px] font-light hover:text-accent transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Columna 4: CONTACTO */}
+          <div>
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-6">
+              CONTACTO
+            </h3>
+            <address className="not-italic space-y-4">
+              <p className="text-[13px] font-light">
+                Barcelona - España
+              </p>
+              <a href="mailto:hola@dresscodepro.es" className="block text-[13px] font-light hover:text-accent transition-colors">
                 hola@dresscodepro.es
               </a>
-              <a href="tel:+34655737973" className="block text-sm text-zinc-400 hover:text-accent transition-colors">
+              <a href="tel:+34655737973" className="block text-[13px] font-light hover:text-accent transition-colors">
                 +34 655 737 973
               </a>
-              <p className="text-sm text-zinc-400">
-                Madrid, España
-              </p>
             </address>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-zinc-500">
-            ©2026 DresscodePro. Todos los derechos reservados
+        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-[11px] text-white/30 font-light">
+            ©2026 Dresscode. Todos los derechos reservados.
           </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center sm:justify-end">
-            <Link href="/aviso-legal" className="text-xs text-zinc-500 hover:text-accent transition-colors">
+          <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center sm:justify-end">
+            <Link href="/aviso-legal" className="text-[11px] text-white/30 font-light hover:text-accent transition-colors">
               Aviso Legal
             </Link>
-            <Link href="/politica-de-privacidad" className="text-xs text-zinc-500 hover:text-accent transition-colors">
+            <Link href="/politica-de-privacidad" className="text-[11px] text-white/30 font-light hover:text-accent transition-colors">
               Política de Privacidad
             </Link>
-            <Link href="/terminos-y-condiciones" className="text-xs text-zinc-500 hover:text-accent transition-colors">
+            <Link href="/terminos-y-condiciones" className="text-[11px] text-white/30 font-light hover:text-accent transition-colors">
               Términos y Condiciones
             </Link>
           </div>

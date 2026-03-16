@@ -6,8 +6,9 @@ import { useState } from "react";
 const navLinks = [
   { label: "SECTORES", hasDropdown: true },
   { label: "SOLUCIONES", href: "/soluciones" },
-  { label: "PROYECTOS", href: "#" },
-  { label: "CONTACTO", href: "/contacto" },
+  { label: "CATÁLOGO", href: "/catalogo" },
+  { label: "PROYECTOS", href: "/proyectos" },
+  { label: "SOBRE NOSOTROS", href: "/sobre-nosotros" },
 ];
 
 const sectorOptions = [
@@ -98,8 +99,8 @@ export function Navbar() {
               <PhoneIcon />
               <span>+34 655 737 973</span>
             </a>
-            <Link href="/solicitar-propuesta" className="rounded-lg bg-zinc-900 px-5 py-3 text-sm font-semibold text-white uppercase tracking-wide hover:bg-zinc-800 transition-colors">
-              Solicitar propuesta
+            <Link href="/solicitar-propuesta" className="rounded-none bg-accent px-6 py-3.5 text-xs font-bold text-white uppercase tracking-widest hover:bg-accent/90 transition-colors">
+              SOLICITAR PROPUESTA
             </Link>
           </div>
 
@@ -143,8 +144,8 @@ export function Navbar() {
                 <PhoneIcon />
                 +34 655 737 973
               </a>
-              <Link href="/solicitar-propuesta" className="rounded-lg bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white uppercase tracking-wide" onClick={() => setMobileMenuOpen(false)}>
-                Solicitar propuesta
+              <Link href="/solicitar-propuesta" className="rounded-none bg-accent px-5 py-3 text-center text-xs font-bold text-white uppercase tracking-widest" onClick={() => setMobileMenuOpen(false)}>
+                SOLICITAR PROPUESTA
               </Link>
             </nav>
           </div>
