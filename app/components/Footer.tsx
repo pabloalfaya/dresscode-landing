@@ -51,7 +51,7 @@ export function Footer() {
             <ul className="space-y-4">
               {[
                 { label: "Sobre Dresscode", href: "/sobre-nosotros" },
-                { label: "Nuestro Proceso", href: "/proceso" },
+                { label: "Nuestro Proceso", href: "/soluciones" },
                 { label: "Proyectos", href: "/proyectos" },
                 { label: "Contacto", href: "/contacto" },
               ].map((link) => (
