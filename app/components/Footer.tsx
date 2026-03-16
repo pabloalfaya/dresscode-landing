@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -7,9 +8,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Columna 1: DRESSCODE */}
           <div className="lg:pr-8">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-6">
-              DRESSCODE
-            </h3>
+            <Link href="/" className="inline-block mb-6">
+              <Image
+                src="/logodresscode.png"
+                alt="Dresscode - Uniformes Contemporáneos"
+                width={180}
+                height={48}
+                className="h-10 w-auto object-contain object-left opacity-95"
+              />
+            </Link>
             <p className="text-[13px] leading-relaxed text-white/50 font-light">
               Dresscode es un estudio con sede en Barcelona especializado en el diseño y producción de uniformes premium para hostelería, wellness y marcas de servicio.
             </p>

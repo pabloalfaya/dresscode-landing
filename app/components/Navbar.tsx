@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "SECTORES", hasDropdown: true },
-  { label: "SOLUCIONES", href: "/soluciones" },
+  { label: "SOLUCIONES", hasDropdown: true },
   { label: "CATÁLOGO", href: "/catalogo" },
+  { label: "SECTORES", hasDropdown: true },
   { label: "PROYECTOS", href: "/proyectos" },
   { label: "SOBRE NOSOTROS", href: "/sobre-nosotros" },
 ];
@@ -21,13 +22,11 @@ const sectorOptions = [
   { label: "Franquicias", href: "/sectores/franquicias" },
 ];
 
-function LogoIcon() {
-  return (
-    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 text-accent">
-      <path d="M21 3C12.5 3 6 10 6 21C6 32 13 39 21 39C29 39 36 32 36 21C36 10 29.5 3 21 3Z M21 35C15 35 10 28 10 21C10 14 15 9 21 9C27 9 32 14 32 21C32 28 27 35 21 35Z" fill="currentColor" />
-    </svg>
-  );
-}
+const solutionsOptions = [
+  { label: "SERVICIO INMEDIATO", subLabel: "Stock permanente, envío 24-72h", href: "/soluciones/servicio-inmediato" },
+  { label: "COLECCIONES EXCLUSIVAS", subLabel: "Diseño a medida para tu marca", href: "/soluciones/colecciones-exclusivas" },
+  { label: "DRESSCODE SYSTEM", subLabel: "Gestión integral para franquicias", href: "/soluciones/dresscode-system" },
+];
 
 function ChevronDown() {
   return (
@@ -48,53 +47,88 @@ function PhoneIcon() {
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sectorsOpen, setSectorsOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAFAFA] border-b border-zinc-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-24 items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <LogoIcon />
-            <div>
-              <span className="block font-bold text-lg tracking-tight text-zinc-950">dresscode</span>
-              <span className="block text-xs font-normal text-zinc-600">Uniformes Contemporáneos</span>
-            </div>
+          <Link href="/" className="flex items-center shrink-0 mr-4">
+            <Image
+              src="/logodresscode.png"
+              alt="Dresscode - Uniformes Contemporáneos"
+              width={180}
+              height={48}
+              className="h-10 w-auto sm:h-12 object-contain object-left"
+              priority
+            />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-8">
             {navLinks.map((link) =>
-              "hasDropdown" in link ? (
+              link.hasDropdown ? (
                 <div key={link.label} className="relative">
                   <button
                     type="button"
-                    onClick={() => setSectorsOpen(!sectorsOpen)}
-                    onBlur={() => setTimeout(() => setSectorsOpen(false), 150)}
-                    className="flex items-center text-sm font-semibold text-zinc-800 hover:text-accent transition-colors"
+                    onClick={() => {
+                      if (link.label === "SECTORES") {
+                        setSectorsOpen(!sectorsOpen);
+                        setSolutionsOpen(false);
+                      } else {
+                        setSolutionsOpen(!solutionsOpen);
+                        setSectorsOpen(false);
+                      }
+                    }}
+                    onBlur={() => {
+                      setTimeout(() => {
+                        if (link.label === "SECTORES") setSectorsOpen(false);
+                        else setSolutionsOpen(false);
+                      }, 150);
+                    }}
+                    className="flex items-center text-xs font-bold text-zinc-500 hover:text-accent transition-colors tracking-widest"
                   >
                     {link.label}
-                    <span className={`ml-0.5 transition-transform ${sectorsOpen ? "rotate-180" : ""}`}><ChevronDown /></span>
+                    <span className={`ml-1 transition-transform ${(link.label === "SECTORES" ? sectorsOpen : solutionsOpen) ? "rotate-180" : ""}`}><ChevronDown /></span>
                   </button>
-                  {sectorsOpen && (
-                    <div className="absolute left-0 top-full pt-2">
-                      <div className="min-w-[200px] rounded-lg border border-zinc-200 bg-white py-2 shadow-lg">
+                  {link.label === "SECTORES" && sectorsOpen && (
+                    <div className="absolute left-0 top-full pt-4">
+                      <div className="min-w-[200px] border border-zinc-100 bg-white shadow-xl py-2">
                         {sectorOptions.map((opt) => (
-                          <Link key={opt.label} href={opt.href} className="block px-4 py-2.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50 hover:text-accent transition-colors">
+                          <Link key={opt.label} href={opt.href} className="block px-6 py-3 text-[13px] font-medium text-zinc-600 hover:bg-[#FBF9F6] hover:text-accent transition-colors">
                             {opt.label}
                           </Link>
                         ))}
                       </div>
                     </div>
                   )}
+                  {link.label === "SOLUCIONES" && solutionsOpen && (
+                    <div className="absolute left-0 top-full pt-4">
+                      <div className="w-[320px] border border-zinc-100 bg-white shadow-xl py-6 px-4">
+                        <div className="flex flex-col gap-6">
+                          {solutionsOptions.map((opt) => (
+                            <Link key={opt.label} href={opt.href} className="block group px-4">
+                              <span className="block text-xs font-bold text-zinc-900 tracking-widest uppercase mb-1 group-hover:text-accent transition-colors">
+                                {opt.label}
+                              </span>
+                              <span className="block text-xs text-zinc-400 font-light group-hover:text-zinc-500 transition-colors">
+                                {opt.subLabel}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
-                <Link key={link.label} href={link.href} className="text-sm font-semibold text-zinc-800 hover:text-accent transition-colors">
+                <Link key={link.label} href={link.href!} className="text-xs font-bold text-zinc-500 hover:text-accent transition-colors tracking-widest">
                   {link.label}
                 </Link>
               )
             )}
           </nav>
 
-          <div className="hidden md:flex items-center gap-6 shrink-0">
+          <div className="hidden lg:flex items-center gap-6 shrink-0 ml-auto">
             <a href="tel:+34655737973" className="flex items-center gap-2 text-sm font-semibold text-accent">
               <PhoneIcon />
               <span>+34 655 737 973</span>
@@ -107,7 +141,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-zinc-800"
+            className="xl:hidden p-2 text-zinc-800 ml-auto lg:ml-4"
             aria-label="Abrir menú"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -117,36 +151,52 @@ export function Navbar() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-zinc-200 py-4">
-            <nav className="flex flex-col gap-3">
+          <div className="xl:hidden border-t border-zinc-200 py-4 bg-white">
+            <nav className="flex flex-col gap-3 px-4">
               {navLinks.map((link) =>
-                "hasDropdown" in link ? (
+                link.hasDropdown ? (
                   <div key={link.label}>
-                    <button type="button" onClick={() => setSectorsOpen(!sectorsOpen)} className="flex w-full items-center justify-between py-2 text-sm font-semibold text-zinc-800">
+                    <button type="button" onClick={() => {
+                      if (link.label === "SECTORES") setSectorsOpen(!sectorsOpen);
+                      else setSolutionsOpen(!solutionsOpen);
+                    }} className="flex w-full items-center justify-between py-3 text-[13px] font-bold text-zinc-600 uppercase tracking-widest">
                       {link.label}
-                      <span className={`transition-transform ${sectorsOpen ? "rotate-180" : ""}`}><ChevronDown /></span>
+                      <span className={`transition-transform ${(link.label === "SECTORES" ? sectorsOpen : solutionsOpen) ? "rotate-180" : ""}`}><ChevronDown /></span>
                     </button>
-                    {sectorsOpen && (
-                      <div className="pl-4 pb-2 flex flex-col gap-1">
+                    {link.label === "SECTORES" && sectorsOpen && (
+                      <div className="pl-4 pb-3 flex flex-col gap-1">
                         {sectorOptions.map((opt) => (
-                          <Link key={opt.label} href={opt.href} className="py-1.5 text-sm font-medium text-zinc-600" onClick={() => setMobileMenuOpen(false)}>{opt.label}</Link>
+                          <Link key={opt.label} href={opt.href} className="py-2 text-[13px] font-medium text-zinc-500 hover:text-accent" onClick={() => setMobileMenuOpen(false)}>{opt.label}</Link>
+                        ))}
+                      </div>
+                    )}
+                    {link.label === "SOLUCIONES" && solutionsOpen && (
+                      <div className="pl-4 pb-3 flex flex-col gap-4">
+                        {solutionsOptions.map((opt) => (
+                          <Link key={opt.label} href={opt.href} className="group py-2" onClick={() => setMobileMenuOpen(false)}>
+                            <span className="block text-xs font-bold text-zinc-900 tracking-widest uppercase mb-1 group-hover:text-accent transition-colors">
+                              {opt.label}
+                            </span>
+                            <span className="block text-xs text-zinc-500 font-light transition-colors">
+                              {opt.subLabel}
+                            </span>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <Link key={link.label} href={link.href} className="py-2 text-sm font-semibold text-zinc-800" onClick={() => setMobileMenuOpen(false)}>
+                  <Link key={link.label} href={link.href!} className="py-3 text-[13px] font-bold text-zinc-600 uppercase tracking-widest hover:text-accent" onClick={() => setMobileMenuOpen(false)}>
                     {link.label}
                   </Link>
                 )
               )}
-              <a href="tel:+34655737973" className="flex items-center gap-2 py-3 text-sm font-semibold text-accent">
-                <PhoneIcon />
-                +34 655 737 973
-              </a>
-              <Link href="/solicitar-propuesta" className="rounded-none bg-accent px-5 py-3 text-center text-xs font-bold text-white uppercase tracking-widest" onClick={() => setMobileMenuOpen(false)}>
-                SOLICITAR PROPUESTA
-              </Link>
+              <div className="pt-4 mt-2 border-t border-zinc-100 lg:hidden">
+                <a href="tel:+34655737973" className="flex items-center gap-3 py-3 text-sm font-semibold text-accent">
+                  <PhoneIcon />
+                  +34 655 737 973
+                </a>
+              </div>
             </nav>
           </div>
         )}
