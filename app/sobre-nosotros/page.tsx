@@ -28,7 +28,7 @@ export default function SobreNosotrosPage() {
         </div>
       </section>
 
-      {/* Todo empezó en la mesa */}
+      {/* Todo empezó en la moda */}
       <section className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -45,7 +45,7 @@ export default function SobreNosotrosPage() {
               </p>
               <h2 className="text-4xl sm:text-5xl font-light text-zinc-900 leading-tight mb-8">
                 Todo empezó <br />
-                <span className="font-bold italic">en la mesa.</span>
+                <span className="font-bold italic">en la moda.</span>
               </h2>
               <div className="space-y-6 text-base text-zinc-500 font-light leading-relaxed">
                 <p>
