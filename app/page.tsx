@@ -41,7 +41,7 @@ export default function Home() {
       <section className="relative min-h-screen pt-24 flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1441986300917-64674bd600d8')` }}
+          style={{ backgroundImage: `url('/primerafoto.png')` }}
         />
         <div className="absolute inset-0 bg-black/40" />
 
